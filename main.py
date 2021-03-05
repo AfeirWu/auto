@@ -113,7 +113,7 @@ def check(sess_id: str, session: requests.session):
 
 def notify_user(text: str):
     if not TG_BOT_TOKEN or not TG_USER_ID:
-        exit(1)
+        exit(0)
     rs = requests.post(url="https://api.telegram.org/bot%s/sendMessage" % TG_BOT_TOKEN, json=dict(chat_id=TG_USER_ID, text=text)).json()
     assert rs["ok"], rs
 
