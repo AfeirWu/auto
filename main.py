@@ -4,10 +4,10 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-USERNAME = os.environ["USERNAME"]
-PASSWORD = os.environ["PASSWORD"]
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-TG_USER_ID = os.environ.get("TG_USER_ID", "")
+USERNAME = os.getenv("USERNAME")
+PASSWORD = os.getenv("PASSWORD")
+TG_BOT_TOKEN = os.getenv("TG_BOT_TOKEN")
+TG_USER_ID = os.getenv("TG_USER_ID")
 PROXIES = {
     "http": "http://127.0.0.1:10809",
     "https": "http://127.0.0.1:10809"
