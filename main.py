@@ -119,6 +119,8 @@ def notify_user(text: str):
 
 
 if __name__ == "__main__":
+    notify_user(text="测试通知")
+    exit(0)
     if not USERNAME or not PASSWORD:
         print("你没有添加任何账户")
         notify_user(text="你没有添加任何账户")
