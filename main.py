@@ -149,6 +149,7 @@ if __name__ == "__main__":
                     notify_user(text="ServerID: %s has been successfully renewed!" % k)
             else:
                 print("ServerID: %s does not need to be renewed" % k)
+                notify_user(text="ServerID: %s does not need to be renewed!" % k)
         time.sleep(15)
         check(sessid, s)
         time.sleep(5)
