@@ -33,7 +33,7 @@ def login(username: str, password: str) -> (str, requests.session):
     f.raise_for_status()
     if f.text.find('Hello') == -1:
         return '-1', session
-    # print(f.request.url)
+    print(f.request.url)
     sess_id = f.request.url[f.request.url.index('=') + 1:len(f.request.url)]
     return sess_id, session
 
