@@ -44,29 +44,6 @@ def login(username: str, password: str) -> (str, requests.session):
         return '-1', session
     return sess_id, session
 
-# def login(username: str, password: str) -> (str, requests.session):
-#     headers = {
-#         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-#                       "Chrome/83.0.4103.116 Safari/537.36",
-#         "origin": "https://www.euserv.com"
-#     }
-#     login_data = {
-#         "email": username,
-#         "password": password,
-#         "form_selected_language": "en",
-#         "Submit": "Login",
-#         "subaction": "login"
-#     }
-#     url = "https://support.euserv.com/index.iphp"
-#     session = requests.Session()
-#     f = session.post(url, headers=headers, data=login_data)
-#     f.raise_for_status()
-#     if f.text.find('Hello') == -1:
-#         return '-1', session
-#     print(f.request.url)
-#     sess_id = f.request.url[f.request.url.index('=') + 1:len(f.request.url)]
-#     return sess_id, session
-
 
 def get_servers(sess_id: str, session: requests.session) -> {}:
     d = {}
@@ -144,6 +121,7 @@ def check(sess_id: str, session: requests.session):
 def notify_user(text: str):
     if not TG_BOT_TOKEN or not TG_USER_ID:
         exit(0)
+    text = "EUserv_extend：" + text
     rs = requests.post(url="https://api.telegram.org/bot%s/sendMessage" % TG_BOT_TOKEN, json=dict(chat_id=TG_USER_ID, text=text)).json()
     assert rs["ok"], rs
 
